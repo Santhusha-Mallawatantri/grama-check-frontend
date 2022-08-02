@@ -48,8 +48,8 @@
               <li><a href="#">Apply for a Police Background Check</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#">Sign In</a></li>
-          <li><a class="getstarted scrollto" href="#">Get Started</a></li>
+          <li><a class="nav-link scrollto" onClick="auth.signIn()">Sign In</a></li>
+          <li><a class="getstarted scrollto" onClick="auth.signIn()">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -68,7 +68,7 @@
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
               <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                <span>Get Started</span>
+                <span onClick="auth.signIn()">Get Started</span>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>
@@ -98,7 +98,7 @@
               </p>
               <div class="text-center text-lg-start">
                 <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                  <span>Get Started</span>
+                  <span onClick="auth.signIn()">Get Started</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -246,7 +246,7 @@
               <i class="bi bi-file-earmark-person icon"></i>
               <h3>Apply for Grama Certificate</h3>
               <p>Reduce the hassle of waiting outside the grama sewaka office and apply for the grama certificate with convenience and ease.</p>
-              <a href="#" class="read-more"><span>Apply Now</span> <i class="bi bi-arrow-right"></i></a>
+              <a onClick="auth.signIn()" class="read-more"><span>Apply Now</span> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -255,7 +255,7 @@
               <i class="bi bi-person-check-fill icon"></i>
               <h3>Check Grama Certificate Status</h3>
               <p>Don't wait in queues waiting for the grama certificate for hours. Avoid the inconvenience and check the progress fast and easy.</p>
-              <a href="#" class="read-more"><span>Get Started</span> <i class="bi bi-arrow-right"></i></a>
+              <a onClick="auth.signIn()" class="read-more"><span>Get Started</span> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -264,7 +264,7 @@
               <i class="bi bi-person-bounding-box icon"></i>
               <h3>Apply for Police Background Certificate</h3>
               <p>Securely apply for a police background certification without having to waste time for hours at the police station for days.</p>
-              <a href="#" class="read-more"><span>Apply Now</span> <i class="bi bi-arrow-right"></i></a>
+              <a onClick="auth.signIn()" class="read-more"><span>Apply Now</span> <i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -332,6 +332,20 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Asgardeo Integration -->
+  <script src="https://unpkg.com/@asgardeo/auth-spa@latest/dist/asgardeo-spa.production.min.js"></script>
+  <script>
+    var auth = AsgardeoAuth.AsgardeoSPAClient.getInstance();
+
+    auth.initialize({
+        signInRedirectURL: "https://localhost:3000",
+        signOutRedirectURL: "https://localhost:3000",
+        clientID: "voZSrw1H0yDbaMDfV0Te603P3DYa",
+        baseUrl: "https://api.asgardeo.io/t/gramacheck",
+        scope: [ "openid","profile" ]
+    });
+  </script>
 
 </body>
 
