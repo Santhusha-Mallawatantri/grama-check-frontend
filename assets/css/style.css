@@ -687,13 +687,13 @@ section {
   margin-bottom: 0;
 }
 
-.grama-cert .php-email-form {
+.grama-cert .user-form {
   background: #fff9f4;
   padding: 30px;
   height: 100%;
 }
 
-.grama-cert .php-email-form .error-message {
+.grama-cert .user-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -703,7 +703,7 @@ section {
   font-weight: 600;
 }
 
-.grama-cert .php-email-form .sent-message {
+.grama-cert .user-form .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -713,7 +713,7 @@ section {
   font-weight: 600;
 }
 
-.grama-cert .php-email-form .loading {
+.grama-cert .user-form .loading {
   display: none;
   background: #fff;
   text-align: center;
@@ -721,7 +721,7 @@ section {
   margin-bottom: 24px;
 }
 
-.grama-cert .php-email-form .loading:before {
+.grama-cert .user-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -734,29 +734,29 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.grama-cert .php-email-form input,
-.grama-cert .php-email-form textarea {
+.grama-cert .user-form input,
+.grama-cert .user-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
   border-radius: 0;
 }
 
-.grama-cert .php-email-form input:focus,
-.grama-cert .php-email-form textarea:focus {
+.grama-cert .user-form input:focus,
+.grama-cert .user-form textarea:focus {
   border-color: #fd7200;
 }
 
-.grama-cert .php-email-form input {
+.grama-cert .user-form input {
   padding: 10px 15px;
 }
 
-.grama-cert .php-email-form textarea {
+.grama-cert .user-form textarea {
   padding: 12px 15px;
   margin-bottom: 20px;
 }
 
-.grama-cert .php-email-form button[type=submit] {
+.grama-cert .user-form button[type=submit] {
   background: #fd7200;
   border: 0;
   padding: 10px 30px;
@@ -765,7 +765,7 @@ section {
   border-radius: 4px;
 }
 
-.grama-cert .php-email-form button[type=submit]:hover {
+.grama-cert .user-form button[type=submit]:hover {
   background: #f0ab5d;
 }
 
@@ -819,13 +819,13 @@ section {
   margin-bottom: 0;
 }
 
-.check-cert .php-email-form {
+.check-cert .user-form {
   background: #fff9f4;
   padding: 30px;
   height: 100%;
 }
 
-.check-cert .php-email-form .error-message {
+.check-cert .user-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -835,7 +835,7 @@ section {
   font-weight: 600;
 }
 
-.check-cert .php-email-form .sent-message {
+.check-cert .user-form .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -845,7 +845,7 @@ section {
   font-weight: 600;
 }
 
-.check-cert .php-email-form .loading {
+.check-cert .user-form .loading {
   display: none;
   background: #fff;
   text-align: center;
@@ -853,7 +853,7 @@ section {
   margin-bottom: 24px;
 }
 
-.check-cert .php-email-form .loading:before {
+.check-cert .user-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -866,29 +866,29 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.check-cert .php-email-form input,
-.check-cert .php-email-form textarea {
+.check-cert .user-form input,
+.check-cert .user-form textarea {
   border-radius: 0;
   box-shadow: none;
   font-size: 14px;
   border-radius: 0;
 }
 
-.check-cert .php-email-form input:focus,
-.check-cert .php-email-form textarea:focus {
+.check-cert .user-form input:focus,
+.check-cert .user-form textarea:focus {
   border-color: #fd7200;
 }
 
-.check-cert .php-email-form input {
+.check-cert .user-form input {
   padding: 10px 15px;
 }
 
-.check-cert .php-email-form textarea {
+.check-cert .user-form textarea {
   padding: 12px 15px;
   margin-bottom: 20px;
 }
 
-.check-cert .php-email-form button[type=submit] {
+.check-cert .user-form button[type=submit] {
   background: #fd7200;
   border: 0;
   padding: 10px 30px;
@@ -897,7 +897,7 @@ section {
   border-radius: 4px;
 }
 
-.check-cert .php-email-form button[type=submit]:hover {
+.check-cert .user-form button[type=submit]:hover {
   background: #f0ab5d;
 }
 
