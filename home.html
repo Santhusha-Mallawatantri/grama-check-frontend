@@ -270,7 +270,7 @@
   <script src="https://unpkg.com/@asgardeo/auth-spa@latest/dist/asgardeo-spa.production.min.js"></script>
   <script>
     // // The SDK provides a client that can be used to carry out the authentication.
-    // import { AsgardeoAuthClient } from "@asgardeo/auth-js";
+    import { AsgardeoAuthClient } from "@asgardeo/auth-js";
 
     // // Create a config object containing the necessary configurations.
     // const config = {
@@ -331,12 +331,13 @@
     //     });
 
     // This client is a class and can be instantiated as follows.
-    var auth = AsgardeoAuth.AsgardeoSPAClient.getInstance();
+    // var auth = AsgardeoAuth.AsgardeoSPAClient.getInstance();
+    const auth = new AsgardeoAuthClient(store);
 
     // Once instantiated, the  client can be initialized by passing the relevant parameters such as the server origin, redirect URL, client ID, etc.
     auth.initialize({
       signInRedirectURL: "https://santhusha-mallawatantri.github.io/grama-check-frontend/home.html",
-      signOutRedirectURL: "https://santhusha-mallawatantri.github.io/grama-check-frontend/",
+      signOutRedirectURL: "https://santhusha-mallawatantri.github.io/grama-check-frontend/home.html",
       clientID: "voZSrw1H0yDbaMDfV0Te603P3DYa",
       baseUrl: "https://api.asgardeo.io/t/gramacheck",
       scope: [ "openid","profile" ]
