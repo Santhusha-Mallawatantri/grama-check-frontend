@@ -311,8 +311,8 @@
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
 
-      const idToken = await auth.getIdToken();
-      console.log(idToken);
+      const accessToken = await auth.getAccessToken();
+      console.log(accessToken);
 
       // Get the element attached to the event handler.
       // let form = e.currentTarget;
