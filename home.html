@@ -100,7 +100,7 @@
         <div class="row gy-4">
 
           <div class="col-lg">
-            <form action="https://grama-check.azurewebsites.net/gramacheck" method="post" class="user-form" id="applyForm">
+            <form action="" method="post" class="user-form" id="applyForm">
               <div class="row align-self-center gy-3">
 
                 <div class="col-md-6">
@@ -151,7 +151,7 @@
         <div class="row gy-4">
 
           <div class="col-lg">
-            <form action="https://grama-check.azurewebsites.net/status" method="post" class="progress-form" id="checkForm">
+            <form action="" method="post" class="progress-form" id="checkForm">
               <div class="row align-self-center gy-3">
 
                 <div class="col-md-6">
@@ -304,28 +304,28 @@
       getToken();
 
       // Get the element attached to the event handler.
-      let form = e.currentTarget;
-
-      // Take the URL from the form's `action` attribute.
-      let url = form.action;
-
-      try {
-        // Takes all the form fields and make the field values
-        // available through a `FormData` instance.
-        let formData = new FormData(form);
-
-        // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData });
-
-        // Destructure the response data
-        let { serverDataResponse } = responseData;
-
-        //Display the response data in the console (for debugging)
-        console.log(serverDataResponse);
-      } catch (error) {
-        //If an error occurs display it in the console (for debugging)
-        console.error(error);
-      }
+      // let form = e.currentTarget;
+      //
+      // // Take the URL from the form's `action` attribute.
+      // let url = form.action;
+      //
+      // try {
+      //   // Takes all the form fields and make the field values
+      //   // available through a `FormData` instance.
+      //   let formData = new FormData(form);
+      //
+      //   // The `postFormFieldsAsJson()`
+      //   let responseData = await postFormFieldsAsJson({ url, formData });
+      //
+      //   // Destructure the response data
+      //   let { serverDataResponse } = responseData;
+      //
+      //   //Display the response data in the console (for debugging)
+      //   console.log(serverDataResponse);
+      // } catch (error) {
+      //   //If an error occurs display it in the console (for debugging)
+      //   console.error(error);
+      // }
     });
 
     //Define the event handler for the form when it's submitted
@@ -334,29 +334,31 @@
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
 
-      // Get the element attached to the event handler.
-      let form = e.currentTarget;
+      getToken();
 
-      // Take the URL from the form's `action` attribute.
-      let url = form.action;
-
-      try {
-        // Takes all the form fields and make the field values
-        // available through a `FormData` instance.
-        let formData = new FormData(form);
-
-        // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData });
-
-        // Destructure the response data
-        let { serverDataResponse } = responseData;
-
-        //Display the response data in the console (for debugging)
-        console.log(serverDataResponse);
-      } catch (error) {
-        //If an error occurs display it in the console (for debugging)
-        console.error(error);
-      }
+      // // Get the element attached to the event handler.
+      // let form = e.currentTarget;
+      //
+      // // Take the URL from the form's `action` attribute.
+      // let url = form.action;
+      //
+      // try {
+      //   // Takes all the form fields and make the field values
+      //   // available through a `FormData` instance.
+      //   let formData = new FormData(form);
+      //
+      //   // The `postFormFieldsAsJson()`
+      //   let responseData = await postFormFieldsAsJson({ url, formData });
+      //
+      //   // Destructure the response data
+      //   let { serverDataResponse } = responseData;
+      //
+      //   //Display the response data in the console (for debugging)
+      //   console.log(serverDataResponse);
+      // } catch (error) {
+      //   //If an error occurs display it in the console (for debugging)
+      //   console.error(error);
+      // }
     });
 
     // Helper function to POST data as JSON with Fetch.
