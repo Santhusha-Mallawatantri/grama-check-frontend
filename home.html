@@ -286,9 +286,20 @@
     });
     auth.signIn({callOnlyOnRedirect:true})
 
-    async function getToken() {
-       const accessToken = await auth.getAccessToken();
-       console.log(accessToken);
+    // async function getToken() {
+    //    const accessToken = await auth.getAccessToken();
+    //    console.log(accessToken);
+    // }
+
+    function getDecodedIdToken(){
+
+       auth.getDecodedIDToken().then((idToken) => {
+               var decodedIdToken = idToken;
+               // Get claims from the decoded idtoken
+               var email = decodedIdToken.email;
+
+               console.log(decodedIdToken);
+           })
     }
 
     //Get the form element by id
@@ -301,7 +312,7 @@
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
 
-      getToken();
+      getDecodedIDToken();
 
       // Get the element attached to the event handler.
       // let form = e.currentTarget;
