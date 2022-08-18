@@ -286,20 +286,20 @@
     });
     auth.signIn({callOnlyOnRedirect:true})
 
-    async function getToken() {
-       const accessToken = await auth.getAccessToken();
-       console.log(accessToken);
-    }
+    // async function getToken() {
+    //    const accessToken = await auth.getAccessToken();
+    //    console.log(accessToken);
+    // }
 
-    function getBasicUserInfo(){
-       auth.getBasicUserInfo().then((userinfoResponse) => {
-           console.log(userinfoResponse); // check userinfo response
-           console.log(userinfoResponse.email);  // check email
-
-       }).catch((error) => {
-           console.error(error);
-       });
-    }
+    // function getBasicUserInfo(){
+    //    auth.getBasicUserInfo().then((userinfoResponse) => {
+    //        console.log(userinfoResponse); // check userinfo response
+    //        console.log(userinfoResponse.email);  // check email
+    //
+    //    }).catch((error) => {
+    //        console.error(error);
+    //    });
+    // }
 
     //Get the form element by id
     let applyForm = document.getElementById("applyForm");
@@ -311,7 +311,8 @@
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
 
-      getBasicUserInfo();
+      const idToken = await auth.getIdToken();
+      console.log(idToken);
 
       // Get the element attached to the event handler.
       // let form = e.currentTarget;
@@ -344,7 +345,8 @@
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
 
-      getToken();
+      const idToken = await auth.getIdToken();
+      console.log(idToken);
 
       // // Get the element attached to the event handler.
       // let form = e.currentTarget;
@@ -378,14 +380,15 @@
       // Format the plain form data as JSON
       let formDataJsonString = JSON.stringify(formDataObject);
 
+      // const token = "bearer " + idToken;
+
       //Set the fetch options (headers, body)
       let fetchOptions = {
         //HTTP method set to POST.
         method: "POST",
         //Set the headers that specify you're sending a JSON body request and accepting JSON response
         // headers: {
-        //   "Content-Type": "application/json",
-        //   "Accept": "application/json",
+        //   "Authorization": token,
         // },
         // POST request body as JSON string.
         body: formDataJsonString,
