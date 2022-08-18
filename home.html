@@ -286,6 +286,11 @@
     });
     auth.signIn({callOnlyOnRedirect:true})
 
+    async function getToken() {
+       const accessToken = await auth.getAccessToken();
+       console.log(accessToken);
+    }
+
     //Get the form element by id
     let applyForm = document.getElementById("applyForm");
     let checkForm = document.getElementById("checkForm");
@@ -295,6 +300,8 @@
 
       // Prevent the default browser behaviour of submitting
       e.preventDefault();
+
+      getToken();
 
       // Get the element attached to the event handler.
       let form = e.currentTarget;
