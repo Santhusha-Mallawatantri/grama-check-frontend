@@ -339,7 +339,7 @@
     // Once instantiated, the  client can be initialized by passing the relevant parameters such as the server origin, redirect URL, client ID, etc.
     auth.initialize({
       // signInRedirectURL: "/home.html",
-      signInRedirectURL: "https://api.asgardeo.io/t/gramacheck/oauth2/authorize?scope=openid,profile&response_type=code&redirect_uri=/home.html&client_id=voZSrw1H0yDbaMDfV0Te603P3DYa",
+      signInRedirectURL: "https://api.asgardeo.io/t/gramacheck/oauth2/authorize?scope=openid&response_type=code&redirect_uri=https://santhusha-mallawatantri.github.io/grama-check-frontend/home.html&client_id=voZSrw1H0yDbaMDfV0Te603P3DYa",
       signOutRedirectURL: "/index.html",
       clientID: "voZSrw1H0yDbaMDfV0Te603P3DYa",
       baseUrl: "https://api.asgardeo.io/t/gramacheck",
@@ -358,6 +358,7 @@
     auth.signIn({callOnlyOnRedirect:true}).then(()=>{
       auth.getAccessToken().then(Response=>{
         sessionStorage.setItem("token",Response);
+        console.log(token);
       });
     })
 
