@@ -331,10 +331,10 @@
         let responseData = await postFormFieldsAsJson({ url, formData, token });
 
         // Destructure the response data
-        let { serverDataResponse } = responseData;
+        let { status } = responseData;
 
         //Display the response data in the console (for debugging)
-        console.log(serverDataResponse);
+        console.log(status);
       } catch (error) {
         //If an error occurs display it in the console (for debugging)
         console.error(error);
@@ -401,8 +401,6 @@
       //Get the response body as JSON.
       //If the response was not OK, throw an error.
       let res = await fetch(url, fetchOptions);
-      
-      console.log(res);
 
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
