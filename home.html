@@ -392,9 +392,13 @@
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
 
+        console.log(exists);
+
         //Display the response data in the console (for debugging)
         if (exists) {
+          console.log(exists);
           if (idcheck) {
+            console.log(idcheck);
             const idIcon = document.getElementById('identity');
             idIcon.classList.remove('uil-times');
             idIcon.classList.add('uil-check');
