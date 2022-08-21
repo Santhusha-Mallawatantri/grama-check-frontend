@@ -26,6 +26,9 @@
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
+  <!-- UniIcon CDN Link  -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
   <!-- JQuery File -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -181,6 +184,40 @@
 
     </section><!-- End Grama Certificate Section -->
 
+    <div class="progress-bar" id="pbar">
+      <div class="head">
+        <p class="head_1">Status of Your <span>Grama</span> Certificate</p>
+      </div>
+
+      <ul>
+        <li>
+          <i class="icon uil uil-user"></i>
+          <div class="progress one">
+            <i id="identity" class="uil uil-times"></i>
+          </div>
+          <p class="text">Identity Check</p>
+        </li>
+
+        <li>
+          <i class="icon uil uil-map-marker"></i>
+          <div class="progress two">
+            <i id="address" class="uil uil-times"></i>
+          </div>
+          <p class="text">Address Check</p>
+        </li>
+
+        <li>
+          <i class="icon uil uil-user-md"></i>
+          <div class="progress three">
+            <i id="police" class="uil uil-times"></i>
+          </div>
+          <p class="text">Police Check</p>
+        </li>
+      </ul>
+
+      <button onclick="clearProgressBar()">Okay</button>
+    </div>
+
     <!-- ======= Police Certificate Section ======= -->
     <section id="about" class="about">
 
@@ -285,21 +322,6 @@
     });
     auth.signIn({callOnlyOnRedirect:true})
 
-    // async function getToken() {
-    //    const accessToken = await auth.getAccessToken();
-    //    console.log(accessToken);
-    // }
-
-    // function getBasicUserInfo(){
-    //    auth.getBasicUserInfo().then((userinfoResponse) => {
-    //        console.log(userinfoResponse); // check userinfo response
-    //        console.log(userinfoResponse.email);  // check email
-    //
-    //    }).catch((error) => {
-    //        console.error(error);
-    //    });
-    // }
-
     //Get the form element by id
     let applyForm = document.getElementById("applyForm");
     let checkForm = document.getElementById("checkForm");
@@ -313,7 +335,7 @@
       const accessToken = await auth.getAccessToken();
 
       const token = "bearer " + accessToken;
-      
+
       const formType = "apply";
 
       // Get the element attached to the event handler.
@@ -350,33 +372,45 @@
       const accessToken = await auth.getAccessToken();
 
       const token = "bearer " + accessToken;
-      
+
       const formType = "check";
 
       // Get the element attached to the event handler.
       let form = e.currentTarget;
-      
+
       // Take the URL from the form's `action` attribute.
       let url = form.action;
-      
+
       try {
         // Takes all the form fields and make the field values
         // available through a `FormData` instance.
         let formData = new FormData(form);
-      
+
         // The `postFormFieldsAsJson()`
         let responseData = await postFormFieldsAsJson({ url, formData, token, formType });
-      
+
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
-      
+
         //Display the response data in the console (for debugging)
-        console.log(exists);
-        console.log(name);
-        console.log(nic);
-        console.log(idcheck);
-        console.log(policecheck);
-        console.log(addresscheck);
+        if exists {
+          if idcheck {
+            const idIcon = document.getElementById('identity');
+            idIcon.classList.remove('uil uil-times');
+            idIcon.classList.add('uil uil-check');
+          } else if (addresscheck) {
+            const addressIcon = document.getElementById('address');
+            addressIcon.classList.remove('uil uil-times');
+            addressIcon.classList.add('uil uil-check');
+          } else if (policecheck) {
+            const policeIcon = document.getElementById('police');
+            policeIcon.classList.remove('uil uil-times');
+            policeIcon.classList.add('uil uil-check');
+          }
+
+          const progressBar = document.getElementById('pbar');
+          progressBar.classList.add('active');
+        }
       } catch (error) {
         //If an error occurs display it in the console (for debugging)
         console.error(error);
@@ -418,6 +452,23 @@
       }
       //If the response was OK, return the response body.
       return res.json();
+    }
+
+    function clearProgressBar() {
+      const progressBar = document.getElementById('pbar');
+      progressBar.classList.remove('active');
+
+      const idIcon = document.getElementById('identity');
+      idIcon.className = "";
+      idIcon.classList.add('uil uil-times');
+
+      const addressIcon = document.getElementById('address');
+      addressIcon.className = "";
+      addressIcon.classList.add('uil uil-times');
+
+      const policeIcon = document.getElementById('police');
+      policeIcon.className = "";
+      policeIcon.classList.add('uil uil-times');
     }
   </script>
 
