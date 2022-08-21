@@ -364,7 +364,7 @@
         let responseData = await postFormFieldsAsJson({ url, formData });
       
         // Destructure the response data
-        let { exists name nic idcheck policecheck addresscheck } = responseData;
+        let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
       
         //Display the response data in the console (for debugging)
         console.log(exists);
