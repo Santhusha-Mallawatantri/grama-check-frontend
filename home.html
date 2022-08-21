@@ -393,8 +393,8 @@
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
 
         //Display the response data in the console (for debugging)
-        if exists {
-          if idcheck {
+        if (exists) {
+          if (idcheck) {
             const idIcon = document.getElementById('identity');
             idIcon.classList.remove('uil uil-times');
             idIcon.classList.add('uil uil-check');
