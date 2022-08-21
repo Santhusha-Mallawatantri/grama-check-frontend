@@ -393,6 +393,9 @@
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
 
         console.log(exists);
+        console.log(idcheck);
+        console.log(addresscheck);
+        console.log(policecheck);
 
         //Display the response data in the console (for debugging)
         if (exists) {
@@ -402,11 +405,17 @@
             const idIcon = document.getElementById('identity');
             idIcon.classList.remove('uil-times');
             idIcon.classList.add('uil-check');
-          } else if (addresscheck) {
+          }
+
+          if (addresscheck) {
+            console.log(addresscheck);
             const addressIcon = document.getElementById('address');
             addressIcon.classList.remove('uil-times');
             addressIcon.classList.add('uil-check');
-          } else if (policecheck) {
+          }
+
+          if (policecheck) {
+            console.log(policecheck);
             const policeIcon = document.getElementById('police');
             policeIcon.classList.remove('uil-times');
             policeIcon.classList.add('uil-check');
