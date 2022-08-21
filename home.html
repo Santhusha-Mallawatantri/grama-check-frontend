@@ -401,6 +401,8 @@
       //Get the response body as JSON.
       //If the response was not OK, throw an error.
       let res = await fetch(url, fetchOptions);
+      
+      console.log(res);
 
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
