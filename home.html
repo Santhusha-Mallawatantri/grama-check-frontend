@@ -396,16 +396,16 @@
         if (exists) {
           if (idcheck) {
             const idIcon = document.getElementById('identity');
-            idIcon.classList.remove('uil uil-times');
-            idIcon.classList.add('uil uil-check');
+            idIcon.classList.remove('uil-times');
+            idIcon.classList.add('uil-check');
           } else if (addresscheck) {
             const addressIcon = document.getElementById('address');
-            addressIcon.classList.remove('uil uil-times');
-            addressIcon.classList.add('uil uil-check');
+            addressIcon.classList.remove('uil-times');
+            addressIcon.classList.add('uil-check');
           } else if (policecheck) {
             const policeIcon = document.getElementById('police');
-            policeIcon.classList.remove('uil uil-times');
-            policeIcon.classList.add('uil uil-check');
+            policeIcon.classList.remove('uil-times');
+            policeIcon.classList.add('uil-check');
           }
 
           const progressBar = document.getElementById('pbar');
@@ -460,15 +460,18 @@
 
       const idIcon = document.getElementById('identity');
       idIcon.className = "";
-      idIcon.classList.add('uil uil-times');
+      idIcon.classList.add('uil');
+      idIcon.classList.add('uil-times');
 
       const addressIcon = document.getElementById('address');
       addressIcon.className = "";
-      addressIcon.classList.add('uil uil-times');
+      addressIcon.classList.add('uil');
+      addressIcon.classList.add('uil-times');
 
       const policeIcon = document.getElementById('police');
       policeIcon.className = "";
-      policeIcon.classList.add('uil uil-times');
+      policeIcon.classList.add('uil');
+      policeIcon.classList.add('uil-times');
     }
   </script>
 
