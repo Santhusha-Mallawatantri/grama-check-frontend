@@ -452,8 +452,6 @@
         status = document.getElementById('apply-message');
       }
 
-      console.log(formType);
-
       //Set the fetch options (headers, body)
       let fetchOptions = {
         //HTTP method set to POST.
@@ -476,7 +474,7 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        status.innerHTML = "An Error Occurred";
+        status.innerHTML = error;
         status.classList.add('active');
 
         setTimeout(function() {
