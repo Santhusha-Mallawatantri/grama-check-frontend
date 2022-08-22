@@ -405,6 +405,8 @@
         // available through a `FormData` instance.
         let formData = new FormData(form);
 
+        console.log(msgId);
+
         // The `postFormFieldsAsJson()`
         let responseData = await postFormFieldsAsJson({ url, formData, token, formType, msgId });
 
