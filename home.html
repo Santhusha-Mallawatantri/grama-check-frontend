@@ -468,7 +468,7 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        msg..innerText = "An Error Occurred";
+        msg.innerText = "An Error Occurred";
         msg.classList.add('active');
 
         setTimeout(function() {
