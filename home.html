@@ -351,7 +351,7 @@
         // Destructure the response data
         let { status } = responseData;
 
-        if (status) {
+        if (status == "ok") {
           const status = document.getElementById('sent-message');
           status.innerHTML = "Request Sent Successfully";
           status.classList.add('active');
