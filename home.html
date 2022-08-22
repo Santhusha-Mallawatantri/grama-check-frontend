@@ -122,9 +122,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message"><!-- Cofigure the http --></div>
+                  <div id="sent-message"></div>
 
                   <button type="submit">Apply for a Certificate</button>
                 </div>
@@ -165,9 +163,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message"><!-- Cofigure the http --></div>
+                  <div id="sent-message"><!-- Cofigure the http --></div>
 
                   <button type="submit">Check Status of Certificate</button>
                 </div>
@@ -355,6 +351,22 @@
         // Destructure the response data
         let { status } = responseData;
 
+        if (status) {
+          const status = document.getElementById('sent-message');
+          status.innerHTML = "Request Sent Successfully";
+          status.classList.add('active');
+
+          setTimeout(function() {
+            status.classList.remove('active');
+            status.classList.add('fade-out');
+
+            setTimeout(function() {
+              status.classList.remove('fade-out');
+              status.innerHTML = "";
+            }, 3000);
+          }, 3000);
+        }
+
         //Display the response data in the console (for debugging)
         console.log(status);
       } catch (error) {
@@ -452,6 +464,8 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
+
+        console.log(error);
         throw new Error(error);
       }
       //If the response was OK, return the response body.
