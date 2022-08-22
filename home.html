@@ -425,6 +425,8 @@
           }
 
           const progressBar = document.getElementById('pbar');
+
+
           progressBar.classList.add('active');
         }
       } catch (error) {
@@ -464,8 +466,19 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
+        const status = document.getElementById('sent-message');
+        status.innerHTML = "An Error Occurred";
+        status.classList.add('active');
 
-        console.log(error);
+        setTimeout(function() {
+          status.classList.remove('active');
+          status.classList.add('fade-out');
+
+          setTimeout(function() {
+            status.classList.remove('fade-out');
+            status.innerHTML = "";
+          }, 3000);
+        }, 3000);
         throw new Error(error);
       }
       //If the response was OK, return the response body.
@@ -474,7 +487,13 @@
 
     function clearProgressBar() {
       const progressBar = document.getElementById('pbar');
+
       progressBar.classList.remove('active');
+      progressBar.classList.add('fade-out');
+
+      setTimeout(function() {
+        progressBar.classList.remove('fade-out');
+      }, 3000);
 
       const idIcon = document.getElementById('identity');
       idIcon.className = "";

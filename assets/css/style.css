@@ -936,7 +936,7 @@ section {
 }
 
 #sent-message.active {
-  display: flex;
+  display: block;
   animation: fadeIn 3s;
   -webkit-animation: fadeIn 3s;
   -moz-animation: fadeIn 3s;
@@ -945,7 +945,7 @@ section {
 }
 
 #sent-message.fade-out {
-  display: flex;
+  display: block;
   animation: fadeOut ease 3s;
   -webkit-animation: fadeOut ease 3s;
   -moz-animation: fadeOut ease 3s;
@@ -1039,6 +1039,15 @@ section {
     -moz-animation: fadeIn 3s;
     -o-animation: fadeIn 3s;
     -ms-animation: fadeIn 3s;
+}
+
+.progress-bar.fade-out {
+    display: flex;
+    animation: fadeOut ease 3s;
+    -webkit-animation: fadeOut ease 3s;
+    -moz-animation: fadeOut ease 3s;
+    -o-animation: fadeOut ease 3s;
+    -ms-animation: fadeOut ease 3s;
 }
 
 .progress-bar .head {
