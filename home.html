@@ -336,6 +336,8 @@
 
       const applyMsg = document.getElementById('apply-message');
 
+      const msgId = "apply-message"
+
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -348,7 +350,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, "apply-message" });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, msgId });
 
         // Destructure the response data
         let { status } = responseData;
@@ -390,6 +392,8 @@
 
       const checkMsg = document.getElementById('check-message');
 
+      const msgId = "check-message"
+
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -402,7 +406,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, "check-message" });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, msgId });
 
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
@@ -496,7 +500,7 @@
 
       setTimeout(function() {
         progressBar.classList.remove('fade-out');
-        
+
         const idIcon = document.getElementById('identity');
         idIcon.className = "";
         idIcon.classList.add('uil');
