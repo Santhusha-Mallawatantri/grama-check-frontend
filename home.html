@@ -448,7 +448,13 @@
       // Format the plain form data as JSON
       let formDataJsonString = JSON.stringify(formDataObject);
 
-      // const token = "bearer " + idToken;
+      var status;
+
+      if (msg == "apply-message") {
+        status = document.getElementById('apply-message');
+      } else if (msg == "check-message") {
+        status = document.getElementById('check-message');
+      }
 
       //Set the fetch options (headers, body)
       let fetchOptions = {
@@ -472,7 +478,6 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        const status = document.getElementById(msg);
         status.innerHTML = "An Error Occurred";
         status.classList.add('active');
 
