@@ -446,12 +446,12 @@
 
       var status;
 
-      if (msg == "check") {
+      if (formType == "check") {
         status = document.getElementById('check-message');
-      } else if (msg == "check-message") {
+      } else if (formType == "apply") {
         status = document.getElementById('apply-message');
       }
-      
+
       console.log(formType);
 
       //Set the fetch options (headers, body)
