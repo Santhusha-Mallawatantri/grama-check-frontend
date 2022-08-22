@@ -348,7 +348,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, 'apply-message' });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, "apply-message" });
 
         // Destructure the response data
         let { status } = responseData;
@@ -402,7 +402,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, 'check-message' });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, "check-message" });
 
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
