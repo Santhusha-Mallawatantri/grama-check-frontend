@@ -468,7 +468,7 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        msg.innerHTML = "An Error Occurred";
+        msg..innerText = "An Error Occurred";
         msg.classList.add('active');
 
         setTimeout(function() {
@@ -495,22 +495,22 @@
 
       setTimeout(function() {
         progressBar.classList.remove('fade-out');
-      }, 6000);
+        
+        const idIcon = document.getElementById('identity');
+        idIcon.className = "";
+        idIcon.classList.add('uil');
+        idIcon.classList.add('uil-times');
 
-      const idIcon = document.getElementById('identity');
-      idIcon.className = "";
-      idIcon.classList.add('uil');
-      idIcon.classList.add('uil-times');
+        const addressIcon = document.getElementById('address');
+        addressIcon.className = "";
+        addressIcon.classList.add('uil');
+        addressIcon.classList.add('uil-times');
 
-      const addressIcon = document.getElementById('address');
-      addressIcon.className = "";
-      addressIcon.classList.add('uil');
-      addressIcon.classList.add('uil-times');
-
-      const policeIcon = document.getElementById('police');
-      policeIcon.className = "";
-      policeIcon.classList.add('uil');
-      policeIcon.classList.add('uil-times');
+        const policeIcon = document.getElementById('police');
+        policeIcon.className = "";
+        policeIcon.classList.add('uil');
+        policeIcon.classList.add('uil-times');
+      }, 3000);
     }
   </script>
 
