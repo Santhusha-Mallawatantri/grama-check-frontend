@@ -336,8 +336,6 @@
 
       const applyMsg = document.getElementById('apply-message');
 
-      const msgId = "apply-message";
-
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -350,7 +348,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, msgId });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType });
 
         // Destructure the response data
         let { status } = responseData;
@@ -392,8 +390,6 @@
 
       const checkMsg = document.getElementById('check-message');
 
-      const msgId = "check-message";
-
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -405,10 +401,8 @@
         // available through a `FormData` instance.
         let formData = new FormData(form);
 
-        console.log(msgId);
-
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, msgId });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType });
 
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
@@ -444,7 +438,7 @@
     });
 
     // Helper function to POST data as JSON with Fetch.
-    async function postFormFieldsAsJson({ url, formData, token, formType, msg }) {
+    async function postFormFieldsAsJson({ url, formData, token, formType }) {
       //Create an object from the form data entries
       let formDataObject = Object.fromEntries(formData.entries());
       // Format the plain form data as JSON
@@ -452,10 +446,10 @@
 
       var status;
 
-      if (msg == "apply-message") {
-        status = document.getElementById('apply-message');
-      } else if (msg == "check-message") {
+      if (msg == "check") {
         status = document.getElementById('check-message');
+      } else if (msg == "check-message") {
+        status = document.getElementById('apply-message');
       }
 
       console.log(msg);
