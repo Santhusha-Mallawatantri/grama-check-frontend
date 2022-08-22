@@ -924,7 +924,7 @@ section {
 /*--------------------------------------------------------------
 # Progress Bar
 --------------------------------------------------------------*/
-#sent-message {
+.sent-message {
   color: #fff;
   background-color: rgba(253, 114, 0, 0.2);
   text-align: center;
@@ -935,7 +935,7 @@ section {
   display: none;
 }
 
-#sent-message.active {
+.sent-message.active {
   display: block;
   animation: fadeIn 3s;
   -webkit-animation: fadeIn 3s;
@@ -944,7 +944,7 @@ section {
   -ms-animation: fadeIn 3s;
 }
 
-#sent-message.fade-out {
+.sent-message.fade-out {
   display: block;
   animation: fadeOut ease 3s;
   -webkit-animation: fadeOut ease 3s;

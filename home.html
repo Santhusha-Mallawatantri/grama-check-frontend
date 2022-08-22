@@ -122,7 +122,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div id="sent-message"></div>
+                  <div class="sent-message" id="apply-message"></div>
 
                   <button type="submit">Apply for a Certificate</button>
                 </div>
@@ -163,7 +163,7 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div id="sent-message"><!-- Cofigure the http --></div>
+                  <div class="sent-message" id="check-message"><!-- Cofigure the http --></div>
 
                   <button type="submit">Check Status of Certificate</button>
                 </div>
@@ -334,6 +334,8 @@
 
       const formType = "apply";
 
+      const applyMsg = document.getElementById('apply-message');
+
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -346,23 +348,22 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, applyMsg });
 
         // Destructure the response data
         let { status } = responseData;
 
         if (status == "ok") {
-          const status = document.getElementById('sent-message');
-          status.innerHTML = "Request Sent Successfully";
-          status.classList.add('active');
+          applyMsg.innerHTML = "Request Sent Successfully";
+          applyMsg.classList.add('active');
 
           setTimeout(function() {
-            status.classList.remove('active');
-            status.classList.add('fade-out');
+            applyMsg.classList.remove('active');
+            applyMsg.classList.add('fade-out');
 
             setTimeout(function() {
-              status.classList.remove('fade-out');
-              status.innerHTML = "";
+              applyMsg.classList.remove('fade-out');
+              applyMsg.innerHTML = "";
             }, 3000);
           }, 3000);
         }
@@ -387,6 +388,8 @@
 
       const formType = "check";
 
+      const checkMsg = document.getElementById('check-message');
+
       // Get the element attached to the event handler.
       let form = e.currentTarget;
 
@@ -399,7 +402,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, checkMsg });
 
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
@@ -426,7 +429,6 @@
 
           const progressBar = document.getElementById('pbar');
 
-
           progressBar.classList.add('active');
         }
       } catch (error) {
@@ -436,7 +438,7 @@
     });
 
     // Helper function to POST data as JSON with Fetch.
-    async function postFormFieldsAsJson({ url, formData, token, formType }) {
+    async function postFormFieldsAsJson({ url, formData, token, formType, msg }) {
       //Create an object from the form data entries
       let formDataObject = Object.fromEntries(formData.entries());
       // Format the plain form data as JSON
@@ -466,19 +468,19 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        const status = document.getElementById('sent-message');
-        status.innerHTML = "An Error Occurred";
-        status.classList.add('active');
+        msg.innerHTML = "An Error Occurred";
+        msg.classList.add('active');
 
         setTimeout(function() {
-          status.classList.remove('active');
-          status.classList.add('fade-out');
+          msg.classList.remove('active');
+          msg.classList.add('fade-out');
 
           setTimeout(function() {
-            status.classList.remove('fade-out');
-            status.innerHTML = "";
+            msg.classList.remove('fade-out');
+            msg.innerHTML = "";
           }, 3000);
         }, 3000);
+
         throw new Error(error);
       }
       //If the response was OK, return the response body.
@@ -493,7 +495,7 @@
 
       setTimeout(function() {
         progressBar.classList.remove('fade-out');
-      }, 3000);
+      }, 6000);
 
       const idIcon = document.getElementById('identity');
       idIcon.className = "";
