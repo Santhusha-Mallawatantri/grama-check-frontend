@@ -348,7 +348,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, applyMsg });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, 'apply-message' });
 
         // Destructure the response data
         let { status } = responseData;
@@ -402,7 +402,7 @@
         let formData = new FormData(form);
 
         // The `postFormFieldsAsJson()`
-        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, checkMsg });
+        let responseData = await postFormFieldsAsJson({ url, formData, token, formType, 'check-message' });
 
         // Destructure the response data
         let { exists, name, nic, idcheck, policecheck, addresscheck } = responseData;
@@ -468,16 +468,17 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        msg.innerText = "An Error Occurred";
-        msg.classList.add('active');
+        const status = document.getElementById(msg);
+        status.innerHTML = "An Error Occurred";
+        status.classList.add('active');
 
         setTimeout(function() {
-          msg.classList.remove('active');
-          msg.classList.add('fade-out');
+          status.classList.remove('active');
+          status.classList.add('fade-out');
 
           setTimeout(function() {
-            msg.classList.remove('fade-out');
-            msg.innerHTML = "";
+            status.classList.remove('fade-out');
+            status.innerHTML = "";
           }, 3000);
         }, 3000);
 
