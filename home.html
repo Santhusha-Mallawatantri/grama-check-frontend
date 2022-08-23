@@ -332,6 +332,8 @@
 
       const accessToken = await auth.getAccessToken();
 
+      console.log(accessToken);
+
       const token = "bearer " + accessToken;
 
       const formType = "apply";
@@ -476,7 +478,7 @@
       //If the response is not ok throw an error (for debugging)
       if (!res.ok) {
         let error = await res.text();
-        status.innerHTML = error;
+        status.innerHTML = error.replace(/(^")|("$)/g, "");
         status.classList.add('active');
 
         setTimeout(function() {
