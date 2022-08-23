@@ -925,13 +925,13 @@ section {
 # Progress Bar
 --------------------------------------------------------------*/
 .sent-message {
-  color: #fff;
+  color: #000;
   background-color: rgba(253, 114, 0, 0.2);
   text-align: center;
   padding: 15px;
   margin-bottom: 24px;
   font-weight: 600;
-  border: 1px solid #fd7200;
+  border: 1px solid rgba(253, 114, 0, 0.2);
   display: none;
 }
 
@@ -1052,6 +1052,7 @@ section {
 
 .progress-bar .head {
     text-align: center;
+    font-family: "Nunito", sans-serif;
 }
 
 .progress-bar .head .head_1 {
