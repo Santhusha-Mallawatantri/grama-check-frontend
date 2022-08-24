@@ -316,9 +316,13 @@
       signOutRedirectURL: "https://santhusha-mallawatantri.github.io/grama-check-frontend/",
       clientID: "voZSrw1H0yDbaMDfV0Te603P3DYa",
       baseUrl: "https://api.asgardeo.io/t/gramacheck",
-      scope: [ "openid","profile" ]
+      scope: [ "openid","profile","address" ]
     });
     auth.signIn({callOnlyOnRedirect:true})
+    // The `sign-in` hook is used to fire a callback function after signing in is successful.
+    auth.on("sign-in", (response) => {
+        alert("You have successfully signed in!");
+    });
 
     //Get the form element by id
     let applyForm = document.getElementById("applyForm");
